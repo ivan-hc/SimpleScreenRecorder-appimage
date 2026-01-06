@@ -4,8 +4,8 @@ APP=simplescreenrecorder
 BIN="$APP" #CHANGE THIS IF THE NAME OF THE BINARY IS DIFFERENT FROM "$APP" (for example, the binary of "obs-studio" is "obs")
 QTVER=$(curl -Ls "https://raw.githubusercontent.com/archlinux/aur/refs/heads/simplescreenrecorder/PKGBUILD" | tr '">< ' '\n' | grep -Eo "qt.*base" | head -1)
 [ -z "$QTVER" ] && exit 0; if [ "$QTVER" = qt5-base ]; then kvantumver="kvantum-qt5" qtctver="qt5ct" qtremoval="qt6 Qt6"; else kvantumver="kvantum" qtctver="qt6ct"; fi
-DEPENDENCES="$kvantumver $qtctver" #SYNTAX: "APP1 APP2 APP3 APP4...", LEAVE BLANK IF NO OTHER DEPENDENCIES ARE NEEDED
-BASICSTUFF="binutils debugedit gzip xdg-user-dirs xdg-utils"
+DEPENDENCES="$kvantumver $qtctver xdg-user-dirs xdg-utils" #SYNTAX: "APP1 APP2 APP3 APP4...", LEAVE BLANK IF NO OTHER DEPENDENCIES ARE NEEDED
+BASICSTUFF="binutils debugedit gzip"
 COMPILERS="base-devel"
 
 # Set keywords to searchan include in names of directories and files in /usr/bin (BINSAVED), /usr/share (SHARESAVED) and /usr/lib (LIBSAVED)
