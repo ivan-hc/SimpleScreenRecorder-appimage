@@ -218,6 +218,12 @@ find AppDir/share/doc/* -not -iname "*$BIN*" -a -not -name "." -delete 2> /dev/n
 find AppDir/share/locale/*/*/* -not -iname "*$BIN*" -a -not -name "." -delete 2> /dev/null #REMOVE ALL ADDITIONAL LOCALE FILES
 rsync -av --inplace --no-whole-file --size-only base/usr/share/locale/* AppDir/share/locale/ | printf "◆ Save locale from base package\n"
 rm -Rf AppDir/share/man # AppImages are not ment to have man command
+rm -f AppDir/*.svg
+for p in AppDir/*.png; do
+	if [ "$p" != "AppDir/simplescreenrecorder.png" ]; then
+		rm -f "$p"
+	fi
+done
 
 ##########################################################################################################################################################
 #	CREATE THE APPIMAGE WITH URUNTIME
