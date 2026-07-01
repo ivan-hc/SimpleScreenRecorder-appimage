@@ -5,7 +5,7 @@ BIN="$APP" #CHANGE THIS IF THE NAME OF THE BINARY IS DIFFERENT FROM "$APP" (for 
 QTVER=$(curl -Ls "https://raw.githubusercontent.com/archlinux/aur/refs/heads/simplescreenrecorder/PKGBUILD" | tr '">< ' '\n' | grep -Eo "qt.*base" | head -1)
 [ -z "$QTVER" ] && exit 0; if [ "$QTVER" = qt5-base ]; then kvantumver="kvantum-qt5" qtctver="qt5ct" qtremoval="qt6 Qt6"; else kvantumver="kvantum" qtctver="qt6ct"; fi
 DEPENDENCES="$kvantumver $qtctver" #SYNTAX: "APP1 APP2 APP3 APP4...", LEAVE BLANK IF NO OTHER DEPENDENCIES ARE NEEDED
-BASICSTUFF="binutils debugedit gzip"
+BASICSTUFF="binutils debugedit gzip patchelf"
 COMPILERS="base-devel"
 
 # Set keywords to searchan include in names of directories and files in /usr/bin (BINSAVED), /usr/share (SHARESAVED) and /usr/lib (LIBSAVED)
